@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo.png" >
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="store.css">
+    <script src="sort.js"></script>
+    <title>AV STORE</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+  <div id="web_content">
+    <nav>
+        <ul>
+            <li><a href="home_p.html" id="nav_logo" class="active"><img src="logodm.png" alt="A"><span id="home_nav">ALPHA VARIENTS</span></a></li>
+            <li><a href="#" class="active">STORE</a></li>
+            <li><a href="ai_p.html">AI</a></li>
+            <button id="user"><i class="fa fa-user-circle " aria-hidden="true"></i></button>
+            <button id="logout" onclick="logout()">LOG OUT</button>
+        </ul>
+    </nav> <br> <br> 
+    <div id="main"> <br><br>
+        <div id="store_content_main">
+
+<!-- sort button for small size screen             -->
+
+            <div id="sort_btn_mq_div">
+                <h3 id="sort_btn_mq" onclick="document.getElementById('sort_popup').style.display='block';" style="width:auto;">
+                    <i id="search_icon" class="fa  fa-sort-amount-desc " aria-hidden="true"></i>
+                    <span>sort</span>
+                </h3>
+            </div>
+        
+        
+<!-- sort option popup for small size screen -->
+        
+            <div id="sort_popup" class="sort_popup_class">
+
+                <span id="close_popup_btn" onclick="document.getElementById('sort_popup').style.display='none';">
+                    X
+                </span>
+          
+                <div class="sort_popup_content" >
+                    <br>
+                  <div id="sort_pp" >
+                      <br>
+                      <div class="search">
+                          <div id="search_div_pp">
+                              <input type="text" id="search_pp" placeholder="Search">  
+                              <i id="search_btn_pp" class="fa fa-search" aria-hidden="true"></i>
+                          </div>  
+                      </div>
+                      <br>
+                      <div id="category_sort_pp">
+                          <h4> CATEGORY</h4>
+                          <input type="checkbox" name="Vegetables" id="veg_sort_pp">
+                          <label for="veg">Vegetables</label><br>
+                          <input type="checkbox" name="fruits" id="fruit_sort_pp">
+                          <label for="fruit">Fruits</label><br>
+                          <input type="checkbox" name="dairy" id="dairy_sort_pp">
+                          <label for="dairy">Dairy</label><br>
+                      </div>
+                      <div id="price_sort_pp">
+                          <h4> PRICE RANGE</h4>
+                          <input type="checkbox" name="price_sort_option_pp" id="price_sort_option_pp" onchange="price_sort_pp()">
+                          <label for="veg">Sort By Price</label><br><br>
+                          <label for="min_range">5 </label>
+                          <input type="range" name="price" id="price_range_sort_pp" min="5" max="200" onchange="pricevalue_pp()" disabled title="">
+                          <label for="max_range"> 200</label>
+                      </div><br>
+                      <div id="sort_btn_div_pp">
+                          <button id="sort_btn_pp" onclick="sort_pp()">SORT</button>
+                      </div>
+                  </div> 
+                  <br>
+                </div>
+            </div>
+
+
+<!-- cart - popup window                -->
+
+            <div id="cart_popup" class="cart_popup_class">
+
+                <span id="close_cart_btn" onclick="document.getElementById('cart_popup').style.display='none';">
+                    X
+                </span>
+          
+                <div class="cart_popup_content" >
+                    <br>
+                    <div id="cart_items_div" >
+                        <h2>CART</h2>
+
+                        <div id="cart_items">
+
+                        </div>
+                        
+                    </div> 
+                    <div id="cart_details_div">
+                        <h2>ORDER DETAILS</h2>
+
+                        <div id="cart_details">
+
+                            <table>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>price</th>
+                                </tr>
+                                
+                            </table>
+
+                            <h3>TOTAL: <span id="total_price">0</span></h3>
+                            <button id="clear_cart">Clear Cart</button>
+                            <button id="proceed">Proceed To Pay</button>
+
+                        </div>
+
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+        
+              
+<!-- content         -->
+        
+        
+            <h3 style="float: right; margin-right: 15px;" id="cart_btn" onclick="document.getElementById('cart_popup').style.display='block';"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> <span>CART</span></h3>
+        
+            <h3 id="welcome_note">WELCOME TO THE STORE!!!</h3> <br>
+        
+            
+            <hr>
+          
+         <!-- sort    -->
+            <div id="sort">
+                <br>
+                <div class="search">
+                    <div id="search_div">
+                        <input type="text" id="search" placeholder="Search">  
+                        <i id="search_btn" class="fa fa-search" aria-hidden="true"></i>
+                    </div>  
+                </div>
+                <br>
+                <div id="category_sort">
+                    <h4> CATEGORY</h4>
+                    <input type="checkbox" name="Vegetables" id="veg_sort">
+                    <label for="veg">Vegetables</label><br>
+                    <input type="checkbox" name="fruits" id="fruit_sort">
+                    <label for="fruit">Fruits</label><br>
+                    <input type="checkbox" name="dairy" id="dairy_sort">
+                    <label for="dairy">Dairy</label><br>
+                </div>
+                <div id="price_sort">
+                    <h4> PRICE RANGE</h4>
+                    <input type="checkbox" name="price_sort_option" id="price_sort_option" onchange="price_sort()" >
+                    <label for="veg">Sort By Price</label><br><br>
+                    <label for="min_range">5 </label>
+                    <input type="range" name="price" id="price_range_sort" min="5" max="200" onchange="pricevalue()" disabled title="">
+                    <label for="max_range"> 200</label>
+                </div><br>
+                <div id="sort_btn_div">
+                    <button id="sort_btn" onclick="sort()">SORT</button>
+                </div>
+            </div>
+        
+        
+         <!-- main store content -->
+        
+            <div id="store_content">
+
+                <div id="banana_i" class="fruits">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="banana.png" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="banana_n" class="product_name">Banana</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 15%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="banana_p" class="price">5</span>/piece <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in piece):</label>
+                                    <input type="number" id="banana_qty" class="quantity" min="5" max="100" step="5" value="5" >
+                                </p>
+                                <button id="banana" class="add_cart_button" onclick="addtocart()" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Vegetables" id="onion_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://imagevars.gulfnews.com/2019/09/20/190920-onion-_16d4fa56edd_large.jpg" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="onion_n" class="product_name">Onion</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="onion_p" class="price">50</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="onion_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="onion" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Vegetables" id="tomato_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="tomato_n" class="product_name">Tomato</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="tomato_p" class="price">25</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="tomato_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="tomato" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fruits" id="gooseberry_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/61AiVz2dSPL._SX466_.jpg" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="gooseberry_n" class="product_name">Gooseberry</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="gooseberry_p" class="price">40</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="gooseberry_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="gooseberry" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fruits" id="guava_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="data:image/jpeg;base64,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" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="guava_n" class="product_name">Guava</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span class="price" id="guava_p">50</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="guava_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="guava">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Vegetables" id="potato_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="data:image/jpeg;base64,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" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="potato_n" class="product_name">Potato</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="potato_p" class="price">35</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="potato_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="potato" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Vegetables" id="ladysfinger_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://5.imimg.com/data5/EP/YS/MY-3966004/lady-fingers-500x500.jpg" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="ladysfinger_n" class="product_name">Lady's Finger</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="ladysfinger_p" class="price">40</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="ladysfinger_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="ladysfinger">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dairy" id="butter_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://guardian.ng/wp-content/uploads/2018/05/butter-1.jpg" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="butter_n" class="product_name">Butter</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="butter_p" class="price">20</span>/50g <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in g):</label>
+                                    <input type="number" id="butter_qty" class="quantity" min="50" max="2500" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="butter" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fruits" id="mango_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://www.luluhypermarket.com/medias/150351-01.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMjgzOTl8aW1hZ2UvanBlZ3xoMmYvaDBiLzEwNzI1NTgwNzM0NDk0LzE1MDM1MS0wMS5qcGdfMTIwMFd4MTIwMEh8NGFkMTU0OTc2NzM0N2Y4MDA2YTgwZGY5MGQzMmJlNmQyYzkwMDVjZWMyZjQ5YTNkOWI1NDg5NmE0ODMxYjJlMQ" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="mango_n" class="product_name">Mango</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="mango_p" class="price">80</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="mango_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="mango" >Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Vegetables" id="brinjal_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEhp5dd0EbXW3IgFrQEzBTvXWrbq3y_EVGgw&usqp=CAU" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="brinjal_n" class="product_name">Brinjal</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="brinjal_p" class="price">30</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="brinjal_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="brinjal">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fruits" id="apple_i">
+                    <div class="card">
+                        <div class="product_img" >
+                            <img src="https://bestapples.com/wp-content/uploads/2018/01/ambrosia-apple.jpg" width="140px" height="130px" >
+                            <!-- <span class="tooltiptext"> its me banana</span> -->
+                        </div>
+                        <hr>
+                        <div class="product_details_div">
+                            <div class="product_details"> 
+                                <h4 style="text-align: center;margin-bottom:7px"><span id="apple_n" class="product_name">Apple</span></h4>
+                                <p style="margin-top:0%;margin-bottom:9px;line-height: 1.6;margin-left: 20%;"><b> price: </b><i class="fa fa-inr" aria-hidden="true"></i> <span id="apple_p" class="price">120</span>/kg <br>
+                                    <label for="qty" style="font-weight: bold;">qty(in kg):</label>
+                                    <input type="number" id="apple_qty" class="quantity" min="1" max="25" step="1" value="1" >
+                                </p>
+                                <button class="add_cart_button" onclick="addtocart()" id="apple">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+        </div> 
+    </div>
+  </div>
+    
+</body>
+<script src="scroll.js"></script>
+<script>
+
+// title for range input in sort
+    
+    var price_range_value = document.getElementById("price_range_sort").value;
+    document.getElementById("price_range_sort").title = price_range_value;
+    function pricevalue(){
+    var price_range_value = document.getElementById("price_range_sort").value;
+    document.getElementById("price_range_sort").title = price_range_value;
+    }    
+
+    var price_range_value_pp = document.getElementById("price_range_sort_pp").value;
+    document.getElementById("price_range_sort_pp").title = price_range_value_pp;
+    function pricevalue_pp(){
+    var price_range_value_pp = document.getElementById("price_range_sort_pp").value;
+    document.getElementById("price_range_sort_pp").title = price_range_value_pp;
+    }    
+
+// closing the popup window 
+
+    var popup_sort = document.getElementById('sort_popup');
+    var popup_cart = document.getElementById('cart_popup');
+    window.onclick = function(event) {
+      if (event.target == popup_sort || event.target == popup_cart) {
+        popup_sort.style.display = "none";
+        popup_cart.style.display = "none";
+      }
+    }
+
+// controls(disable and enable range input) in sort
+
+    document.getElementById("price_range_sort").disabled=true;
+    document.getElementById("price_range_sort_pp").disabled=true;
+
+    function price_sort(){
+        var checkbox = document.getElementById("price_sort_option");
+        var range_state = document.getElementById("price_range_sort");
+
+        if (checkbox.checked == true){
+            range_state.disabled=false;
+        } else {
+            range_state.disabled=true;
+        }
+    }
+    function price_sort_pp(){
+        var checkbox_pp = document.getElementById("price_sort_option_pp");
+        var range_state_pp = document.getElementById("price_range_sort_pp");
+
+        if (checkbox_pp.checked == true){
+            range_state_pp.disabled=false;
+        } else {
+            range_state_pp.disabled=true;
+        }
+    }
+
+// logout function
+
+function logout(){
+    var confirm_logout = confirm("Do you really want to logout?");
+    if (confirm_logout == true) {
+        window.top.close();
+      
+    }
+    
+}
+
+
+</script>
+<script src="cart.js"></script>
+
+</html>

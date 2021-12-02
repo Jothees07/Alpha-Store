@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo.png" >
+    <link rel="stylesheet" href="index.css">
+    <title>ALPHA VARIENTS</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+  <div id="web_content">
+    <nav>
+        <ul>
+            <li><a href="#" id="nav_logo" class="active"><img src="logodm.png" alt="A"><span id="home_nav">ALPHA VARIENTS</span></a></li>
+            <li><a href="store_p.html">STORE</a></li>
+            <li><a href="ai_p.html">AI</a></li>
+            <button id="user"><i class="fa fa-user-circle " aria-hidden="true"></i></button>
+            <button id="logout" onclick="logout()">LOG OUT</button>
+        </ul>
+    </nav> <br> <br>
+
+    <div id="main">
+       <div id="home">
+        <div class="content"><br><br><br>
+          <div class="cont_l">
+            <h2 class="h2_l">
+              <span> E-commerce </span> <br>
+            </h2>
+            <h3 class="h3_l">
+              <span> Goods at your door step </span>
+            </h3>
+          </div>
+          <img  class="img_r" src="https://sgp1.digitaloceanspaces.com/cosmosgroup/news/8686839_8271220_dhgh.png" alt="img">
+        </div> <br> <hr> <br> <br>
+
+        <div class="content" id="c2"><br><br><br>
+          <img  class="img_r" src="https://static.vecteezy.com/system/resources/previews/000/128/802/original/free-rice-field-illustration-vector.jpg" alt="img">
+          <div class="cont_r">
+            <h2 class="h2_l">
+              <span> FRESH GOODS </span> <br>
+            </h2>
+            <h3 class="h3_l">
+              <span> Directly from farmers </span>
+            </h3>
+          </div>
+        </div> <br> <hr> <br>
+        
+        <div class="content"><br><br><br>
+          <div class="cont_r">
+            <h2 class="h2_l">
+              <span> Login Credentials </span> <br>
+            </h2>
+            <h3 class="h3_l">
+              <span> Username : farm_store </span> <br>
+              <span> Password : password </span>
+            </h3>
+          </div>
+          <img  class="img_rr" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw3fAnzWZh4WFt6A-Fik_cXfeu74ggL0_llzaF_0AggLKIwy1ggxZcaaqMyCuIDUr3vK4&usqp=CAU" alt="img" >
+        </div> <br> <hr> <br>
+       </div> 
+       
+    </div>
+  </div>
+
+    
+</body>
+
+<script src="scroll.js"></script>
+
+<script>
+  
+  // logout function
+
+function logout(){
+    var confirm_logout = confirm("Do you really want to logout?");
+    if (confirm_logout == true) {
+      window.top.close();
+      
+
+    }
+    
+}
+
+</script>
+
+
+</html>

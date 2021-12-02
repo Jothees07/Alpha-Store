@@ -1,0 +1,56 @@
+#search_div{
+    margin-top: 10%;
+    border: none;
+}
+#search_head{
+    margin-left: 45%;
+    margin-right: auto;
+    display: block;
+}
+#search_head h2{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#search_bar{
+    margin: auto;
+    display: block;
+    width: 500px;    
+    background-color:transparent;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+input[type=text]:focus{
+    background-color: white;
+    outline: none;
+    
+}
+#search{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    width: 400px;
+    height: 35px;
+}
+#search_bar i{
+    font-size: large;
+}
+
+#search_btn {
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+#ai_main{
+    background: url("ai_gif_2.gif")  no-repeat ;
+    background-position-x: -60px;
+    height: 300px;
+    width: 100%;
+}
+body{
+    background: url("ai_img.jpg")  no-repeat ;
+    
+    background-position-x: 700px;
+    
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo.png" >
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="ai.css">
+    <title>ALPHA VARIENTS</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+  <div id="web_content">
+    <nav>
+        <ul>
+            <li><a href="home_p.html" id="nav_logo" ><img src="logodm.png" alt="A"><span id="home_nav">ALPHA VARIENTS</span></a></li>
+            <li><a href="store_p.html">STORE</a></li>
+            <li><a href="#" class="active">AI</a></li>
+            <button id="user"><i class="fa fa-user-circle " aria-hidden="true"></i></button>
+            <button id="logout" onclick="logout()">LOG OUT</button>
+        </ul>
+    </nav> <br> <br>
+    <div id="main">
+      
+      <div id="ai_main">
+
+        <div id="search_div">
+            <div id="search_head">
+                <h2>AI SCAN</h2>
+            </div><br>
+            <div id="search_bar">
+                <i id="search_btn" onclick="search()" class="fa fa-search" aria-hidden="true" ></i>
+                &nbsp;<input type="text" id="search" placeholder="Search"> 
+                <input type="file"  accept="image/*" name="image" id="file" onchange="loadFile(event)"  style="display: none;">
+                <label for="file" style="cursor: pointer;"><i class="fa fa-camera"  aria-hidden="true"></i></label>
+                &nbsp;
+                
+            </div>
+
+            <p><img id="output" width="200" /></p> 
+
+        </div>
+
+         
+
+        
+
+    </div>
+       
+    </div>
+  </div>
+
+
+  
+    
+</body>
+<script src="scroll.js"></script>
+
+<script>
+
+  var loadFile = function(event) {
+  var image = document.getElementById('output');
+  image.src = URL.createObjectURL(event.target.files[0]);
+  };
+
+  var input = document.getElementById("search");
+  input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("search_btn").click();
+      }
+  });
+
+  function search(){
+      alert("search works :-)");
+      
+  }
+</script>
+<script>
+
+  // logout function
+
+function logout(){
+    var confirm_logout = confirm("Do you really want to logout?");
+    if (confirm_logout == true) {
+      window.top.close();
+      
+    }
+    
+}
+
+</script>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="logo.png" >
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="login.css">
+    <title>ALPHA VARIENTS</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> 
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <script>
+        $( function() {
+            $( "body" ).tabs();
+        } );
+    </script>
+</head>
+<body>
+  <div id="web_content">
+    <nav >
+        <ul>
+            <li><a href="#home" id="nav_logo" class="active"><img src="logodm.png" alt="A"><span id="home_nav">ALPHA VARIENTS</span></a></li>
+            <li><a href="store.html">STORE</a></li>
+            <li><a href="ai.html">AI</a></li>
+            <button id="login" onclick="document.getElementById('login_popup').style.display='block';document.getElementById('web_content').style.filter='blur(8px)'" style="width:auto; " >LOG IN</button>
+        </ul>
+    </nav> <br> <br> <br>
+    <div id="main" id="particles-js">
+
+      
+
+      <div id="home" class="count-particles">
+
+        <div id="onload_gif">
+          <img src="gif_load_2.gif" >
+        </div>
+
+          
+          <div id="c1" class="content"><br><br><br>
+            <div class="cont_l">
+              <h2 class="h2_l">
+                <span> E-commerce </span> <br>
+              </h2>
+              <h3 class="h3_l">
+                <span> Goods at your door step </span>
+              </h3>
+            </div>
+            <img  class="img_r" src="https://sgp1.digitaloceanspaces.com/cosmosgroup/news/8686839_8271220_dhgh.png" alt="img">
+          </div> <br> <hr> 
+
+          <div id="c2" class="content"><br> <br><br><br><br>
+            <img  class="img_r" src="https://static.vecteezy.com/system/resources/previews/000/128/802/original/free-rice-field-illustration-vector.jpg" alt="img">
+            <div class="cont_r">
+              <h2 class="h2_l">
+                <span> FRESH GOODS </span> <br>
+              </h2>
+              <h3 class="h3_l">
+                <span> Directly from farmers </span>
+              </h3>
+            </div><br> 
+          </div> <hr> <br>
+          
+          <div id="c3" class="content"><br><br><br>
+            <div class="cont_r">
+              <h2 class="h2_l">
+                <span> Login Credentials </span> <br>
+              </h2>
+              <h3 class="h3_l">
+                <span> Username : farm_store </span> <br>
+                <span> Password : password </span>
+              </h3>
+            </div>
+            <img  class="img_rr" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw3fAnzWZh4WFt6A-Fik_cXfeu74ggL0_llzaF_0AggLKIwy1ggxZcaaqMyCuIDUr3vK4&usqp=CAU" alt="img" >
+          </div> <br> <hr> <br>
+          
+
+          
+
+       </div> 
+       
+    </div>
+  </div>
+
+<!-- login popup dialogbox -->
+
+    <div id="login_popup" class="popup">
+        <span onclick="document.getElementById('login_popup').style.display='none';document.getElementById('web_content').style.filter='blur(0px)'" class="close" title="Close popup">&times;</span>
+        <form class="popup-content" >
+          <div class="container">
+            <h1 id="login_head"><i class="fa fa-user-circle-o"></i> LOG IN</h1>
+            <hr>
+            <label for="username"><i class="fa fa-user icon"></i><b> Username</b></label>
+            <input type="text" placeholder="Enter username" id="username_login" name="username" required>
+      
+            <label for="psw"><i class="fa fa-key icon"></i><b> Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password_login" name="psw" required>
+      
+            <div class="clearfix">
+              <button type="submit" onclick="login()" class="loginbtn">LOG IN</button>
+            </div>
+            <div>
+              <h4>Not a Customer? <a href="#"  onclick="document.getElementById('login_popup').style.display='none'; document.getElementById('signup_popup').style.display='block';document.getElementById('web_content').style.filter='blur(8px)'" style="width:auto; ">SIGN UP</a></h4>
+            </div>
+          </div>
+        </form>
+    </div>
+
+<!-- signup popup dialogbox -->    
+
+    <div id="signup_popup" class="popup">
+      <span onclick="document.getElementById('signup_popup').style.display='none';document.getElementById('web_content').style.filter='blur(0px)'" class="close" title="Close popup">&times;</span>
+      <form class="popup-content" >
+        <div class="container">
+          <h1 id="signup_head"><i class="fa fa-user-circle-o"></i> SIGN UP</h1>
+          <hr>
+          <label for="email"><b>Email</b></label>
+          <input type="email" placeholder="Enter email" name="email" required>
+
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter username" id="username_signup" name="username" required>
+
+          <label for="address"><b>Address</b></label>
+          <input type="text" placeholder="Enter House No. , street name" name="address" required>
+
+          <label for="city"><b>City</b></label>
+          <input type="text" placeholder="Enter city" name="city" required>
+
+          <label for="district"><b>District</b></label>
+          <input type="text" placeholder="Enter district" name="district" required>
+
+          <label for="state"><b>State</b></label>
+          <input type="text" placeholder="Enter state" name="state" required>
+
+          <label for="pincode"><b>Pincode</b></label>
+          <input type="number" placeholder="Enter pincode" name="pincode" required>
+
+          <label for="ph_no"><b>Phone number</b></label>
+          <input type="number" placeholder="Enter phone number" name="ph_no" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="password_signupc" required>
+    
+          <div class="clearfix" >
+            <button type="reset" class="reset">RESET</button>
+            <button type="submit" onclick="signup()" class="signupbtn">REGISTER</button>
+          </div>
+          <div>
+            <h4>Already a Customer? <a href="#" onclick="document.getElementById('login_popup').style.display='block'; document.getElementById('signup_popup').style.display='none';document.getElementById('web_content').style.filter='blur(8px)'" style="width:auto; ">LOG IN</a></h4>
+          </div>
+        </div>
+      </form>
+  </div>
+  
+    
+</body>
+<script src="scroll.js"></script>
+<script>
+  var popup_login = document.getElementById('login_popup');
+  var popup_signup = document.getElementById('signup_popup');
+  window.onclick = function(event) {
+    if (event.target == popup_login || event.target == popup_signup){
+      popup_login.style.display = "none";
+      popup_signup.style.display = "none";
+      document.getElementById('web_content').style.filter='blur(0px)';
+    }
+  }
+</script>
+  <script>
+    $(document).ready(function(){
+
+      $(".content , hr").hide();
+      setTimeout(function() { $(".content, hr").show(); }, 5000);
+
+      $("#onload_gif").show();
+      setTimeout(function() { $("#onload_gif").hide(); }, 5000);
+      
+      $("nav a").click(function(event){
+          $("nav a").removeClass("active")
+          $(this ).addClass("active")
+      });
+      $( ".loginbtn" ).click(function( event ) {  
+        if ( $( "#username_login").val() === "farm_store" && $("#password_login").val() === "password" ) {    
+          window.open('store_p.html','mywindow').focus();
+          
+        // window.location.href = "store.html",true;
+        // return false;  
+        }else{
+        alert("Enter a valid userid and paasword");
+        } 
+      });
+
+      
+    });
+  </script>
+  
+</html>
